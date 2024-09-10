@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Book>
+
+<h1>Book List</h1>
+
+<p><a href="/Book/Create">Add New Book</a></p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Year</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model)
+        {
+            <tr>
+                <td>@book.Title</td>
+                <td>@book.Author</td>
+                <td>@book.Year</td>
+                <td>
+                    <a href="/Book/Edit/@book.Id" class="btn btn-primary">Edit</a>
+                    <a href="/Book/Delete/@book.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
